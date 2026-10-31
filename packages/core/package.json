@@ -1,0 +1,29 @@
+{
+  "name": "@hearth/core",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint src",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@hearth/agent-runtime": "workspace:*",
+    "@hearth/context-engine": "workspace:*",
+    "@hearth/model-gateway": "workspace:*",
+    "@hearth/shared": "workspace:*",
+    "@hearth/storage": "workspace:*",
+    "@hearth/tool-runtime": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}

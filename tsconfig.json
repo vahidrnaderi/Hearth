@@ -1,0 +1,13 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./packages/shared" },
+    { "path": "./packages/model-gateway" },
+    { "path": "./packages/agent-runtime" },
+    { "path": "./packages/context-engine" },
+    { "path": "./packages/tool-runtime" },
+    { "path": "./packages/storage" },
+    { "path": "./packages/core" },
+    { "path": "./apps/webview" }
+  ]
+}
