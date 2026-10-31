@@ -13,9 +13,10 @@ Use this after implementing a Hearth milestone (or any substantive change). **Do
 From the **repository root** (`hearth/`):
 
 ```bash
-pnpm install   # if dependencies changed
 pnpm run verify
 ```
+
+Run **`pnpm install` only** when `package.json`, `pnpm-lock.yaml`, or workspace membership changed — not on every milestone or verify.
 
 `pnpm run verify` runs, in order:
 

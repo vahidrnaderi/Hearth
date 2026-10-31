@@ -7,7 +7,7 @@ Hearth is an **independent** git repo under `hearth/`. When working on Hearth:
 
 Before finishing a milestone, read **[docs/development/agent-handoff.md](docs/development/agent-handoff.md)**.
 
-Quick verify:
+Quick verify (no `pnpm install` unless dependencies changed):
 
 ```bash
 pnpm run verify
