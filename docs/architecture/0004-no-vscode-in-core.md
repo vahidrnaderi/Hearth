@@ -1,7 +1,6 @@
 # ADR 0004: No vscode in core packages
 
 - **Status:** Accepted
-- **Date:** 2026-11-03
 
 ## Context
 

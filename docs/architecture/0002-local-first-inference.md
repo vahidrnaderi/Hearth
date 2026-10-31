@@ -1,7 +1,6 @@
 # ADR 0002: Local-first inference
 
 - **Status:** Accepted
-- **Date:** 2026-11-03
 
 ## Context
 

@@ -1,7 +1,6 @@
 # ADR 0005: Monorepo tooling
 
 - **Status:** Accepted
-- **Date:** 2026-11-03
 
 ## Context
 

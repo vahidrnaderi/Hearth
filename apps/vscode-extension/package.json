@@ -12,21 +12,44 @@
   "activationEvents": ["onStartupFinished"],
   "main": "./dist/extension.js",
   "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "hearth",
+          "title": "Hearth",
+          "icon": "$(flame)"
+        }
+      ]
+    },
+    "views": {
+      "hearth": [
+        {
+          "type": "webview",
+          "id": "hearth.chat",
+          "name": "Chat"
+        }
+      ]
+    },
     "commands": [
       {
         "command": "hearth.showInfo",
         "title": "Hearth: Show Core Info"
+      },
+      {
+        "command": "hearth.openChat",
+        "title": "Hearth: Open Chat"
       }
     ]
   },
   "scripts": {
-    "build": "node esbuild.mjs",
+    "build": "pnpm --filter @hearth/webview run build && node esbuild.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "lint": "eslint src",
     "test": "vitest run --passWithNoTests"
   },
   "dependencies": {
-    "@hearth/core": "workspace:*"
+    "@hearth/core": "workspace:*",
+    "@hearth/shared": "workspace:*"
   },
   "devDependencies": {
     "@types/vscode": "^1.95.0",

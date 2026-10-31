@@ -1,0 +1,97 @@
+:host,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--vscode-editor-background);
+  color: var(--vscode-editor-foreground);
+  font-family: var(--vscode-font-family);
+  font-size: var(--vscode-font-size);
+}
+
+.hearth {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.hearth-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--vscode-panel-border);
+}
+
+.hearth-title {
+  font-weight: 600;
+  flex: 1;
+}
+
+.hearth-model {
+  max-width: 55%;
+}
+
+.hearth-log {
+  flex: 1;
+  overflow: auto;
+  padding: 8px 10px;
+}
+
+.hearth-empty {
+  opacity: 0.7;
+  font-style: italic;
+}
+
+.hearth-line {
+  margin-bottom: 8px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.hearth-line-user {
+  opacity: 0.95;
+}
+
+.hearth-line-assistant {
+  padding-left: 8px;
+  border-left: 2px solid var(--vscode-focusBorder);
+}
+
+.hearth-line-status {
+  opacity: 0.75;
+  font-size: 0.92em;
+}
+
+.hearth-compose {
+  padding: 8px 10px;
+  border-top: 1px solid var(--vscode-panel-border);
+}
+
+.hearth-input {
+  width: 100%;
+  box-sizing: border-box;
+  resize: vertical;
+  background: var(--vscode-input-background);
+  color: var(--vscode-input-foreground);
+  border: 1px solid var(--vscode-input-border);
+}
+
+.hearth-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.hearth-actions button {
+  background: var(--vscode-button-background);
+  color: var(--vscode-button-foreground);
+  border: none;
+  padding: 4px 12px;
+  cursor: pointer;
+}
+
+.hearth-actions button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}

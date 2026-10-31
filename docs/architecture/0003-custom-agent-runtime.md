@@ -1,7 +1,6 @@
 # ADR 0003: Custom agent runtime
 
 - **Status:** Accepted
-- **Date:** 2026-11-03
 
 ## Context
 

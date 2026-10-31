@@ -4,7 +4,7 @@
 
 Local-first, model-agnostic AI coding assistant. The VS Code extension is the UI shell; agent, model gateway, indexing, and tools live in TypeScript packages that do not import `vscode`.
 
-Reference implementation for lexical search and propose/accept: [`../slm_mvp_starter/`](../slm_mvp_starter/).
+This repository is **self-contained**. Milestone tracking lives in the Cursor plan `~/.cursor/plans/local-first_ai_ide_243f6b80.plan.md`; do not duplicate that roadmap here.
 
 ## Prerequisites
 
@@ -15,19 +15,21 @@ Reference implementation for lexical search and propose/accept: [`../slm_mvp_sta
 
 ```bash
 pnpm install
-pnpm run check:boundaries
-pnpm run typecheck
-pnpm run test
-pnpm run build
+pnpm run verify   # boundaries + lint + typecheck + test + build
 ```
+
+Or run steps individually: `check:boundaries`, `typecheck`, `test`, `build`.
+
+Agents: see [AGENTS.md](AGENTS.md) and [docs/development/agent-handoff.md](docs/development/agent-handoff.md).
 
 ## Try the extension
 
-1. Open **`apps/vscode-extension`** as the VS Code workspace folder (File → Open Folder).
-2. Press **F5** (or Run → Start Debugging) to launch an **Extension Development Host** window.
-3. In that window, open the Command Palette and run **Hearth: Show Core Info**.
+1. From repo root: `pnpm run build`.
+2. Open **`apps/vscode-extension`** as the VS Code workspace folder (File → Open Folder).
+3. Press **F5** to launch the **Extension Development Host**.
+4. Click the **Hearth** activity bar icon → **Chat** webview, or run **Hearth: Open Chat** / **Hearth: Show Core Info** from the Command Palette.
 
-You should see a message with the core version and default model role (`agent`). If the build is stale, run `pnpm run build` from the repo root first, or use the default build task before F5 (see `apps/vscode-extension/.vscode/`).
+Send a message in the sidebar to exercise the M1-2 stub reply (no real model yet).
 
 ## Layout
 
@@ -38,5 +40,5 @@ See [docs/architecture/README.md](docs/architecture/README.md) and ADRs in the s
 | Step | Status |
 |------|--------|
 | M1-1 Monorepo bootstrap | Done |
-| M1-2 Extension + webview scaffold | Pending |
+| M1-2 Extension + webview scaffold | Done |
 | M1-3 Model gateway | Pending |

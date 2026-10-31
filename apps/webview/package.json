@@ -4,15 +4,20 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "tsc -p tsconfig.json",
+    "build": "node esbuild.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "lint": "eslint src",
     "test": "vitest run --passWithNoTests"
   },
   "dependencies": {
-    "@hearth/shared": "workspace:*"
+    "@hearth/shared": "workspace:*",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
   },
   "devDependencies": {
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "esbuild": "^0.25.12",
     "typescript": "^5.9.3"
   }
 }

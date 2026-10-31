@@ -1,7 +1,6 @@
 # ADR 0006: Product branding
 
 - **Status:** Accepted
-- **Date:** 2026-11-03
 
 ## Context
 
