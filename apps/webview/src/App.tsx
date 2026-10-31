@@ -151,7 +151,7 @@ export function App() {
       </header>
       <main className="hearth-log">
         {lines.length === 0 ? (
-          <p className="hearth-empty">Ask about your repository (M1-2 UI).</p>
+          <p className="hearth-empty">Send a message (requires Ollama or an enabled OpenAI-compatible server).</p>
         ) : (
           lines.map((line, i) => (
             <div key={i} className={`hearth-line hearth-line-${line.kind}`}>

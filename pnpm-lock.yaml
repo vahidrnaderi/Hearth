@@ -38,6 +38,9 @@ importers:
       '@hearth/core':
         specifier: workspace:*
         version: link:../../packages/core
+      '@hearth/model-gateway':
+        specifier: workspace:*
+        version: link:../../packages/model-gateway
       '@hearth/shared':
         specifier: workspace:*
         version: link:../../packages/shared
@@ -131,6 +134,9 @@ importers:
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
+      vitest:
+        specifier: ^3.2.7
+        version: 3.2.7(@types/node@22.20.5)
 
   packages/shared:
     dependencies:

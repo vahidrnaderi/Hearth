@@ -1,5 +1,4 @@
 import * as vscode from "vscode";
-import { getCoreInfo } from "@hearth/core";
 
 export function getWebviewHtml(
   webview: vscode.Webview,
@@ -39,65 +38,4 @@ function getNonce(): string {
     text += chars.charAt(Math.floor(Math.random() * chars.length));
   }
   return text;
-}
-
-export function postModelsUpdated(
-  webview: vscode.Webview,
-  selectedModelId: string,
-): void {
-  webview.postMessage({
-    type: "models_updated",
-    models: [
-      { id: "stub-local", name: "Local (stub)", provider: "ollama" },
-      { id: "stub-cloud", name: "Cloud (stub)", provider: "openai-compatible" },
-    ],
-    selectedModelId,
-  });
-}
-
-export function stubAgentReply(webview: vscode.Webview, userText: string): string {
-  const sessionId = `stub-${Date.now()}`;
-  const info = getCoreInfo();
-  const reply = `[M1-2 stub] Hearth core v${info.version}. You said: ${userText.slice(0, 500)}`;
-
-  void (async () => {
-    webview.postMessage({
-      type: "agent_event",
-      sessionId,
-      event: { type: "status", message: "Thinking…" },
-    });
-    for (const word of reply.split(" ")) {
-      await delay(40);
-      webview.postMessage({
-        type: "agent_event",
-        sessionId,
-        event: { type: "text_delta", text: `${word} ` },
-      });
-    }
-    webview.postMessage({
-      type: "agent_event",
-      sessionId,
-      event: { type: "finished", reason: "stop" },
-    });
-  })();
-
-  return sessionId;
-}
-
-export function cancelStubSession(
-  webview: vscode.Webview,
-  sessionId: string | undefined,
-): void {
-  if (!sessionId) {
-    return;
-  }
-  webview.postMessage({
-    type: "agent_event",
-    sessionId,
-    event: { type: "finished", reason: "cancel" },
-  });
-}
-
-function delay(ms: number): Promise<void> {
-  return new Promise(resolve => setTimeout(resolve, ms));
 }

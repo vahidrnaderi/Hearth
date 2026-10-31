@@ -38,8 +38,37 @@
       {
         "command": "hearth.openChat",
         "title": "Hearth: Open Chat"
+      },
+      {
+        "command": "hearth.setOpenAiApiKey",
+        "title": "Hearth: Set OpenAI-compatible API Key"
       }
-    ]
+    ],
+    "configuration": {
+      "title": "Hearth",
+      "properties": {
+        "hearth.ollama.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "List and chat via local Ollama."
+        },
+        "hearth.ollama.baseUrl": {
+          "type": "string",
+          "default": "http://127.0.0.1:11434",
+          "description": "Ollama server base URL."
+        },
+        "hearth.openaiCompatible.enabled": {
+          "type": "boolean",
+          "default": false,
+          "description": "List and chat via an OpenAI-compatible HTTP API (LM Studio, llama.cpp server, etc.)."
+        },
+        "hearth.openaiCompatible.baseUrl": {
+          "type": "string",
+          "default": "http://127.0.0.1:1234/v1",
+          "description": "Base URL for /models and /chat/completions."
+        }
+      }
+    }
   },
   "scripts": {
     "build": "pnpm --filter @hearth/webview run build && node esbuild.mjs",
@@ -49,6 +78,7 @@
   },
   "dependencies": {
     "@hearth/core": "workspace:*",
+    "@hearth/model-gateway": "workspace:*",
     "@hearth/shared": "workspace:*"
   },
   "devDependencies": {

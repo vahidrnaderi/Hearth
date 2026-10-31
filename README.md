@@ -22,14 +22,15 @@ Or run steps individually: `check:boundaries`, `typecheck`, `test`, `build`.
 
 Agents: see [AGENTS.md](AGENTS.md) and [docs/development/agent-handoff.md](docs/development/agent-handoff.md).
 
-## Try the extension
+## Try the extension (M1-3 chat)
 
-1. From repo root: `pnpm run build`.
-2. Open **`apps/vscode-extension`** as the VS Code workspace folder (File → Open Folder).
-3. Press **F5** to launch the **Extension Development Host**.
-4. Click the **Hearth** activity bar icon → **Chat** webview, or run **Hearth: Open Chat** / **Hearth: Show Core Info** from the Command Palette.
+1. Start **Ollama** locally (`ollama serve`) and pull a model (e.g. `ollama pull llama3.2`).
+2. From repo root: `pnpm run build`.
+3. Open **`apps/vscode-extension`** as the VS Code workspace folder (File → Open Folder).
+4. Press **F5** — use the **second** window (Extension Development Host).
+5. Open the **Hearth** flame icon → **Chat**, pick a model, send a message.
 
-Send a message in the sidebar to exercise the M1-2 stub reply (no real model yet).
+Optional **OpenAI-compatible** server: enable `hearth.openaiCompatible.enabled` in Settings, set `hearth.openaiCompatible.baseUrl`, run **Hearth: Set OpenAI-compatible API Key** (SecretStorage).
 
 ## Layout
 
@@ -41,4 +42,4 @@ See [docs/architecture/README.md](docs/architecture/README.md) and ADRs in the s
 |------|--------|
 | M1-1 Monorepo bootstrap | Done |
 | M1-2 Extension + webview scaffold | Done |
-| M1-3 Model gateway | Pending |
+| M1-3 Model gateway | Done |

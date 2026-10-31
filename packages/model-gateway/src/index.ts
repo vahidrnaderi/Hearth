@@ -1,16 +1,18 @@
-/** Provider abstraction (M1-3). */
-export type ModelCapabilities = {
-  streaming: boolean;
-  toolCalling: boolean;
-  vision: boolean;
-  structuredOutput: boolean;
-  maxContextTokens?: number;
-};
-
-export interface ModelProvider {
-  readonly id: string;
-  readonly displayName: string;
-  listModels(): Promise<{ id: string; name: string }[]>;
-}
-
-export const GATEWAY_PACKAGE = "@hearth/model-gateway" as const;
+export { inferCapabilities } from "./capabilities.js";
+export { ModelGateway } from "./gateway.js";
+export { composeModelId, parseModelId } from "./model-id.js";
+export { GATEWAY_PACKAGE } from "./constants.js";
+export type {
+  ChatMessage,
+  ChatRole,
+  ChatStreamChunk,
+  FetchLike,
+  GatewayConfig,
+  GatewayOptions,
+  ListedModel,
+  ModelCapabilities,
+  ModelProviderKind,
+  OllamaGatewaySettings,
+  OpenAiCompatibleGatewaySettings,
+  SecretsReader,
+} from "./types.js";
